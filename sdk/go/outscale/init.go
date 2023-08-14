@@ -22,6 +22,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "outscale:index:Random":
 		r = &Random{}
+	case "outscale:index:Yandom":
+		r = &Yandom{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -32,6 +32,7 @@ func main() {
 		infer.Provider(infer.Options{
 			Resources: []infer.InferredResource{
 				infer.Resource[Random, RandomArgs, RandomState](),
+				infer.Resource[Yandom, YandomArgs, YandomState](),
 			},
 		}))
 }
@@ -83,4 +84,32 @@ func makeRandom(length int) string {
 		result[i] = charset[seededRand.Intn(len(charset))]
 	}
 	return string(result)
+}
+
+type Yandom struct{}
+
+// Each resource has in input struct, defining what arguments it accepts.
+type YandomArgs struct {
+	// Fields projected into Pulumi must be public and hava a `pulumi:"..."` tag.
+	// The pulumi tag doesn't need to match the field name, but its generally a
+	// good idea.
+	Length int `pulumi:"length"`
+}
+
+// Each resource has a state, describing the fields that exist on the created resource.
+type YandomState struct {
+	// It is generally a good idea to embed args in outputs, but it isn't strictly necessary.
+	YandomArgs
+	// Here we define a required output called result.
+	Result string `pulumi:"result"`
+}
+
+// All resources must implement Create at a minumum.
+func (Yandom) Create(ctx p.Context, name string, input YandomArgs, preview bool) (string, YandomState, error) {
+	state := YandomState{YandomArgs: input}
+	if preview {
+		return name, state, nil
+	}
+	state.Result = makeRandom(input.Length)
+	return name, state, nil
 }

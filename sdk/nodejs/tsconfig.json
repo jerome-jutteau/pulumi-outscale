@@ -16,6 +16,7 @@
         "index.ts",
         "provider.ts",
         "random.ts",
-        "utilities.ts"
+        "utilities.ts",
+        "yandom.ts"
     ]
 }

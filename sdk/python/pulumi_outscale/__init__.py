@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .provider import *
 from .random import *
+from .yandom import *
 _utilities.register(
     resource_modules="""
 [
@@ -15,7 +16,8 @@ _utilities.register(
   "mod": "index",
   "fqn": "pulumi_outscale",
   "classes": {
-   "outscale:index:Random": "Random"
+   "outscale:index:Random": "Random",
+   "outscale:index:Yandom": "Yandom"
   }
  }
 ]

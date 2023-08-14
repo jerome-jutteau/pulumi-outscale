@@ -15,6 +15,11 @@ export type Random = import("./random").Random;
 export const Random: typeof import("./random").Random = null as any;
 utilities.lazyLoad(exports, ["Random"], () => require("./random"));
 
+export { YandomArgs } from "./yandom";
+export type Yandom = import("./yandom").Yandom;
+export const Yandom: typeof import("./yandom").Yandom = null as any;
+utilities.lazyLoad(exports, ["Yandom"], () => require("./yandom"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -22,6 +27,8 @@ const _module = {
         switch (type) {
             case "outscale:index:Random":
                 return new Random(name, <any>undefined, { urn })
+            case "outscale:index:Yandom":
+                return new Yandom(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
