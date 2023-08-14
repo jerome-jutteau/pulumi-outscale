@@ -11,11 +11,11 @@ _utilities.register(
     resource_modules="""
 [
  {
-  "pkg": "xyz",
+  "pkg": "outscale",
   "mod": "index",
-  "fqn": "pulumi_xyz",
+  "fqn": "pulumi_outscale",
   "classes": {
-   "xyz:index:Random": "Random"
+   "outscale:index:Random": "Random"
   }
  }
 ]
@@ -23,9 +23,9 @@ _utilities.register(
     resource_packages="""
 [
  {
-  "pkg": "xyz",
-  "token": "pulumi:providers:xyz",
-  "fqn": "pulumi_xyz",
+  "pkg": "outscale",
+  "token": "pulumi:providers:outscale",
+  "fqn": "pulumi_outscale",
   "class": "Provider"
  }
 ]
