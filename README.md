@@ -1,3 +1,7 @@
+# Nothing to see here
+
+Please don't use this repo yet, nothing ready for use yet.
+
 # Pulumi Native Provider Boilerplate
 
 This repository is a boilerplate showing how to create a native Pulumi provider.
